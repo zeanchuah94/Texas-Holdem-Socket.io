@@ -1,0 +1,8 @@
+{
+    "hostName" : "配信者",
+    "hostId" : "haishinsha001",
+    "roomID" : "1a2b3c",
+    "maxPlayer": 6,
+    "player" : "プレイヤー0",
+    "playerid" : "player0"
+}

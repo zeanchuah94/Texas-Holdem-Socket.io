@@ -1,0 +1,582 @@
+html {
+    font-family: sans-serif;   
+}
+
+body{
+    background-color: #090909 !important;
+}
+
+.poker-table {
+    background-repeat: no-repeat;
+    left: 100px;
+    position: absolute;
+    height: 411px;
+    width: 745px;
+    opacity: 1;
+    background-image: url('../images/poker_table.png');
+}
+
+.seat {
+    height: 150px;
+    position: absolute;
+    width: 150px;
+    display:none;
+}
+
+#button {
+    background-image: url('../images/dealerbutton.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 19px;
+    position: absolute;
+    width: 24px;
+    display: none;
+}
+
+.name-chips {
+    background-color: gray;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    height: 33px;
+    position: absolute;
+    text-align: center;
+    top: 65px;
+    width: 140px;
+}
+
+.player-name {
+    width: 100%;
+}
+
+.card {
+    background-image: url('../images/cardback.png');
+    background-size: 100%;
+    border-radius: 4px;
+    height: 73px;
+    width: 50px;
+}
+
+.card:hover {
+    scale: 1.5;
+    translate: 0% -40%
+}
+
+.holecards {
+    float: left;
+    height: 73px;
+    left: 20px;
+    position: absolute;
+    top: 3px;
+    width: 102px;
+}
+
+.holecard1 {
+    left: 0px;
+    position: absolute;
+}
+
+.holecard2 {
+    left: 55px;
+    position: absolute;
+}
+
+
+.bet,.role_text {
+    color: white;
+    font-size: 12px;
+    left: 40px;
+    position: absolute;
+    top: 0px;
+    text-shadow: -1px 0     black, 0 1px     black, 1px 0     black, 0 -1px     black;
+    text-shadow: -1px 0 1px black, 0 1px 1px black, 1px 0 1px black, 0 -1px 1px black;
+}
+
+.role_text{
+    top: 115px;
+    font-size: 14px;
+}
+
+.seat0 {
+    left: 0px;
+    top:  330px;
+}
+.seat0-button {
+    left: 235px;
+    top:  410px;
+}
+.seat0 .bet {
+    top: -20px;
+}
+
+.seat1 {
+    left:  -50px;
+    top: 155px;
+}
+.seat1-button {
+    left: 185px;
+    top:  235px;
+}
+.seat1 .bet {
+    top: 100px;
+}
+
+.seat2 {
+    left: 0px;
+    top:  0px;
+}
+.seat2-button {
+    left: 235px;
+    top:   80px;
+}
+.seat2 .bet {
+    top: 100px;
+}
+
+.seat3 {
+    left: 200px;
+    top:    0px;
+}
+
+.seat3-button {
+    left: 280px;
+    top:   80px;
+}
+.seat3 .bet {
+    top: 100px;
+}
+
+.seat4 {
+    left: 400px;
+    top:    0px;
+}
+
+.seat4-button {
+    left: 480px;
+    top:   80px;
+}
+.seat4 .bet {
+    top: 100px;
+}
+
+.seat5 {
+    left: 600px;
+    top:    0px;
+}
+
+.seat5-button {
+    left: 680px;
+    top:   80px;
+}
+.seat5 .bet {
+    top: 100px;
+}
+
+.seat6 {
+    left: 650px;
+    top:  155px;
+}
+.seat6-button {
+    left: 730px;
+    top:  235px;
+}
+.seat6 .bet {
+    top: 100px;
+}
+
+.seat7 {
+    left: 600px;
+    top:  330px;
+}
+.seat7-button {
+    left: 680px;
+    top:  410px;
+}
+.seat7 .bet {
+    top: -20px;
+}
+
+.seat8 {
+    left: 400px;
+    top:  330px;
+}
+.seat8-button {
+    left: 480px;
+    top:  410px;
+}
+.seat8 .bet {
+    top: -20px;
+}
+.seat9 {
+    left: 200px;
+    top:  330px;
+}
+.seat9-button {
+    left: 280px;
+    top:  410px;
+}
+.seat9 .bet {
+    top: -20px;
+}
+
+
+#board {
+    left: 250px;
+    position: absolute;
+    top:  168px;
+}
+
+#pot {
+    color: white;
+    font-size: 16px;
+    left: 325px;
+    position: absolute;
+    text-align: center;
+    top: 245px;
+}
+
+.boardcard {
+    height: 73px;
+    left: 0px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -10px;
+    width: 50px;
+}
+
+#flop2 {
+    left: 52px;
+}
+
+#flop3 {
+    left: 104px;
+}
+
+#turn {
+    left: 156px;
+}
+
+#river {
+    left: 208px;
+}
+
+#flop1, #flop2, #flop3, #turn, #river {
+    display: none;
+}
+
+#burn1 {
+    left: 280px;
+    rotate: -18deg;
+}
+#burn2 {
+    left: 290px;
+}
+#burn3 {
+    left: 300px;
+    rotate: 15deg;
+}
+
+#action-options {
+    height: 100px;
+    left: 300px;
+    position: absolute;
+    top: 60%;
+    width: 500px;
+    display: none;
+}
+
+.action-button {
+    background-color: silver;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    height: 40px;
+    width:80px;
+    left: 0px;
+    padding: 10px 5px 0 5px;
+    position: absolute;
+    top: 0px;
+    text-align: center;
+}
+
+#setup-options {
+    height: 400px;
+    left: 900px;
+    position: absolute;
+    top: 400px;
+    width: 200px;
+}
+
+.setup-button {
+    background-color: silver;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    height: 30px;
+    left: 0px;
+    padding: 10px 5px 0px 5px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    width: 160px;
+}
+.setup-button:hover {
+    box-shadow: 3px 3px 4px #000000;
+}
+
+#speed-button {
+    cursor: default;
+    top: 50px;
+}
+
+select {
+    background-color: silver;
+    background: silver;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 3em;
+}
+
+#mode-button {
+    top: 100px;
+}
+
+#help-button {
+    top: 150px;
+}
+
+/* #check-button {
+    top: 200px;
+} */
+
+#history {
+    border-color: white;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 10px;
+    height: 600px;
+    left: 50px;
+    position: absolute;
+    top: 600px;
+    width: 400px;
+}
+
+#game-response {
+    border: none;
+    color: white;
+    font-size: 12px;
+    height: 300px;
+    left: 900px;
+    position: absolute;
+    text-align: center;
+    top: 5px;
+    width: 600px;
+}
+
+#production-code {
+    color: white;
+    font-size: 10px;
+    height: 20px;
+    left: 900px;
+    position: absolute;
+    text-align: right;
+    top: 310px;
+    width: 600px;
+}
+
+.response-normal {
+    background-color: transparent;
+}
+
+
+.response-warning {
+    background-color: #FF0000;
+}
+
+#fold-button:hover {
+    box-shadow: 3px 3px 4px #000000;
+}
+
+#call-button {
+    left: 140px;
+}
+
+#check-button {
+    left: 240px;
+}
+
+#raise-button {
+    left: 340px;
+}
+
+#bet-button {
+    left: 440px;
+}
+
+#call-button:hover,
+#check-button:hover,
+#raise-button:hover,
+#bet-button:hover
+{
+    box-shadow: 3px 3px 4px #000000;
+}
+
+#raise-slider {
+    background-color: white;
+    border-radius: 4px;
+    font-size: 18px;
+    height: 75px;
+    left: 25px;
+    position: absolute;
+    text-align: center;
+    top: 515px;
+    width: 350px;
+}
+
+
+#modal-box {
+    background-color: silver;
+    display: none;
+    font-size: 12px;
+    height: 100%;
+    left: 0px;
+    overflow: auto; /* Enable scroll */
+    position: fixed;
+    text-align: center;
+    top: 0px;
+    width: 100%;
+    z-index: 1;  /* Stay on top */
+}
+
+#modal-box a:link {
+    color: white;
+    text-decoration: none;
+}
+#modal-box a:hover {
+    color: white;
+    text-shadow: 3px 3px 4px #000000;
+}
+
+/* 追加 */
+#mainContent {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#gameContent{
+    display: none;
+}
+
+#startGameBtn{
+    display: none;
+}
+
+#raise-modal,#bet-modal {
+    width:500px;
+    background-color: rgb(192,192,192,0.8);
+    border-radius: 4px;
+    font-size: 18px;
+    height: 200px;
+    position: absolute;
+    top: 40%;
+    left: 200px;
+    text-align: center;
+    display: none;
+}
+
+#confirmRaise-button,#confirmBet-button{
+    position: relative;
+    width: 200px;
+    background: blue;
+    left: 150px;
+}
+/* 以下スライダーのCSS */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+    background: #8acdff;
+    height: 14px;
+    width: 300px;
+    border-radius: 10px;
+    border: solid 3px #dff1ff;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #53aeff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+  }
+  input[type="range"]::-moz-range-thumb {
+    background: #53aeff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+    border: none;
+  }
+  input[type="range"]::-moz-focus-outer {
+    border: 0;
+  }
+  input[type="range"]:active::-webkit-slider-thumb {
+    box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+  }
+  #game-message {
+    display: none;
+    color: deeppink;
+    position: relative;
+    top: 100px;
+    left: 250px;
+    font-size: 30px;
+  }
+  #mycards .player-name{
+    color: yellow;
+  }
+  /* diamond shape */
+.glow {
+	width: 140px;
+	height: 100px;
+	background: #c0ffe488;
+	box-shadow: 1px 1px 0 #1D8758, 0 0 20px 5px #C0FFE4, inset 2px 2px 0 #D3FFEC;
+	animation: glow 2s infinite ease;
+}
+
+/* animates box shadow glow effect */
+@keyframes glow {
+	0%,100% {
+		box-shadow: 1px 1px #1D8758, 0 0 20px 5px #8FFFCF, inset 2px 2px #D3FFEC;
+	}
+	50% {
+		box-shadow: 1px 1px #1D8758, 0 0 16px 8px #8FFFCF, inset 2px 2px #D3FFEC;
+	}
+}
+/* animates light across diamond */
+@keyframes sheen {
+	0%,100% {
+		left: 0;
+		opacity: 0;
+	}
+	1% {
+		opacity: 1;
+	}
+	10% {
+		left: calc(100% - 4px);
+	}
+	11%,98% {
+		left: 100%;
+		opacity: 0;
+	}
+}
