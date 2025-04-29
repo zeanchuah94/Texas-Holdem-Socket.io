@@ -63,60 +63,16 @@ io.on('connection',(socket)=>{
         }
     });
 
-    ///
-
-    
-    // if(socket.connected){
-    //     console.log('socket id:',socket.id, '　が接続されました');
-    //     if(rooms.length < 1){
-    //         console.log("接続ソケット数 === " + clientCount);
-    //         console.log(socket.id, 'がhost');
-    //         //ルーム人数上限未満な場合ルームに入れる
-    //         if(clientCount < dummyInfo.maxPlayer){
-    //             // socket.join(dummyInfo.roomID);   
-    
-    //             const game = new Game(dummyInfo.roomID,dummyInfo.hostName);
-    //             game.setMaxPlayer(dummyInfo.maxPlayer);
-    //             game.addPlayer(dummyInfo.hostName,socket,dummyInfo.hostId);
-    //             rooms.push(game);
-    //             game.emitPlayers('hostRoom',{
-    //                 roomid: dummyInfo.roomID,
-    //                 players: game.getPlayersArray(),
-    //             });
-    //         }
-    //     } else {
-    //         const game = rooms.find((room)=>room.getCode() === dummyInfo.roomID);
-    //         console.log(socket.id, 'がclient');
-    //         console.log(game.getMaxPlayer());
-    //         if(game != undefined && clientCount < game.getMaxPlayer()){
-    //             // console.log(game.players.length);
-    //             // socket.join(dummyInfo.roomID);  
-    //             game.addPlayer(dummyInfo.player01_name,socket,dummyInfo.player01_id);
-    //             console.log(game.getNumPlayers());
-    //             console.log(game.getPlayersArray());
-    //             // game.emitPlayers('joinRoom',{
-    //             //     name: dummyInfo.hostName,
-    //             //     roomid: dummyInfo.roomID,
-    //             //     players: game.getPlayersArray(),
-    //             //     seat: 1
-    //             // });
-    //         }
-    //         return;   
-    //     }
-    // })
-
     // 部屋内のsocket詳細を確認できる
     // const tests = await io.in(dummyInfo.roomID).fetchSockets(); 
     // tests.forEach(test => {
     //     console.log(test.id);
     // });
     socket.on('startGame', (data) => {
-        //配信者がゲーム開始を押す時
         console.log(data);
         const game = rooms.find((r) => r.getCode() == data);
         if(game != undefined){
             console.log('host start game');
-            // game.emitPlayers('gameBegin', { code: data });
             game.startGame();
         }
     });

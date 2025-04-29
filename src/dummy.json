@@ -1,6 +1,6 @@
 {
-    "hostName" : "配信者",
-    "hostId" : "haishinsha001",
+    "hostName" : "ホスト",
+    "hostId" : "host001",
     "roomID" : "1a2b3c",
     "maxPlayer": 6,
     "player" : "プレイヤー0",

@@ -8,9 +8,6 @@
 */
 function gui_setPlayerName (name, seat) {
   let seatloc = $('.seat' + seat);
-  // if (name === "") {
-  //   name = "名無し";
-  // } 
   seatloc.children('.name-chips').children('.player-name').html(name);
 }
 
@@ -207,17 +204,6 @@ function gui_renderBasicInfo(data){
 
   opponentArray.forEach(opp => {
     console.log(opp.seat);
-  //   {
-  //     "username": "プレイヤー01",
-  //     "status": "Their Turn",  ⇦ 手番じゃない場合は ""
-  //     "blind": "Small Blind",  ⇦他にBig Blindがあります
-  //     "money": 99,             ⇦所持金
-  //     "buyIns": 0,             
-  //     "isChecked": false,
-  //     "seat": 1
-  //     "bet": 2                 ⇦賭け金
-  //     "isDealer": true/false                 ⇦賭け金
-  // }
     let oppSeat = $('.seat' + opp.seat);
     oppSeat.find('.chips').html("所持金: " + opp.money);
     if(opp.status == 'Fold'){
@@ -261,34 +247,3 @@ function gui_updateRaiseDisplay() {
       $('#raiseRangeSlider').val()
   );
 }
-
-/* 
-  手札カード配り処理（１枚ずつ）
-*/
-// function gui_dealCards(data){
-//   new Promise((resolve,reject)=> {
-//     //一枚目配る
-//     return new Promise(()=>{
-//       dealCards(1,data.players.length);
-//     })
-//   }).then(()=>{
-//     //２枚目配る
-//     return new Promise(()=>{
-//       dealCards(2,data.players.length);
-//     })
-//   }).then(()=>{
-//     //手札開示
-//     for(let x= 0; x < data.cards.length; x++){
-//       let target = $('#mycards > .holecards').children('.holecard'+(x+1));
-//       gui_renderHandCard(target,handCards[x],false);
-//     }
-//   })
-// }
-
-// function dealCards(index,plength){
-//   for(let n = 0; n < plength; n++){
-//     setTimeout(function(){
-//       $('.seat' + n).find(".holecard" + index).show();
-//     },500);
-//   }
-// }

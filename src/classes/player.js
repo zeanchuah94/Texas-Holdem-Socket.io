@@ -1,6 +1,6 @@
-const Player = function (playerName, socket, mixchid,seatno, debug) {
+const Player = function (playerName, socket, playerId,seatno, debug) {
   this.username = playerName;
-  this.pid = mixchid;
+  this.pid = playerId;
   this.cards = [];
   this.socket = socket;
   this.currentCard = null;
@@ -12,7 +12,6 @@ const Player = function (playerName, socket, mixchid,seatno, debug) {
   this.allIn = false;
   this.goAgainStatus = false;
   this.debug = debug || false;
-  this.playerID = mixchid;
   this.playerSeat = seatno; //  座る席のID
 
   this.addCard = (card) => {

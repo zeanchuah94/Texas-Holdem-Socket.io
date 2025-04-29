@@ -18,14 +18,7 @@ $(document).ready(function () {
 
 const socket = io();
 
-// //クライアント側に保持させる情報
-//必須なもの
-//配信者ID
-//参加者ID（複数）
-//ルームID
-
 socket.on('enterRoom',(data)=>{    
-    //配信者のプレイヤーアイコンを画面に表示する
     console.log('main js new client enterRoom');
     console.log(data);
     console.log('----------------------');
@@ -36,11 +29,8 @@ socket.on('enterRoom',(data)=>{
             $('#startGameBtn').show();
         }
             for(let x= 0; x < data.players.length; x++){
-              gui_setPlayerName(data.players[x],x);
-                // if(data.name == data.players[x]){
-                //   $('.seat' + x).attr('id','mycards');
-                // }
-                $('.seat' + x).show();
+              gui_setPlayerName(data.players[x],x);  
+              $('.seat' + x).show();
             }
     }
 });
@@ -52,29 +42,10 @@ socket.on('bindSeat',(data)=>{
 
 //カードを配る
 socket.on('dealt', function (data) {
-      //再戦の場合テーブルにカード残るためcssで隠す
-      // $('#mainContent').remove();
       gui_resetGameInfo();
 
       console.log('======' + data.username + ' の手札は======');
       console.log(data);
-       //   {
-  //     "currBet": 0,
-  //     "username": "配信者",
-  //     "cards": [
-  //         {
-  //             "value": 6,
-  //             "suit": "♠"
-  //         },
-  //         {
-  //             "value": 9,
-  //             "suit": "♣"
-  //         }
-  //     ],
-  //     "players": [
-  //         "配信者"
-  //     ]
-  // }
       console.log('========================');
 
       let handCards = data.cards;
@@ -82,8 +53,6 @@ socket.on('dealt', function (data) {
         var target = $('#mycards > .holecards').children('.holecard'+(x+1));
         gui_renderHandCard(target,handCards[x],false);
       }
-
-      // gui_dealCards(data);
   });
   
 /* 
@@ -103,13 +72,6 @@ socket.on('rerender', function (data) {
 socket.on('displayPossibleMoves', function (data) {
   console.log('-----displaying possible  moves -------');
   console.log(data);
-//   {
-//     "fold": "yes",
-//     "check": "no",
-//     "bet": "no",
-//     "call": 2,
-//     "raise": "yes"
-// }
   console.log('----- possible  moves ここまで -------');
 
   if (data.fold == 'yes') $('#fold-button').show();
@@ -138,13 +100,7 @@ socket.on('reveal', function (data) {
 
     let winners = "";
     for (var i = 0; i < data.winners.length; i++) {  
-      winners.concat(', ', data.winners[i]);
-      
-      //勝者のみが見える表示　おめでとうございます　YOUWINYOUWINとか
-      // if (data.winners[i] == data.username) {
-        //     alert('あなたの勝ちです！');
-        //     break;
-        //   } 
+      winners.concat(', ', data.winners[i]); 
     }
     $('#game-message').html('勝者は: ' + data.winners);
     $('#game-message').show();
@@ -286,18 +242,12 @@ function fold() {
 };
 
 function bet() {
-  // if (parseInt($('#betRangeSlider').val()) == 0) {
-  //   alert('ベットする金額を決めてください');
-  // } else if (parseInt($('#betRangeSlider').val()) < 2) {
-  //   Materialize.toast('The minimum bet is $2.', 4000);
-  // } else {
     console.log('bet');
     socket.emit('moveMade', {
       move: 'bet',
       bet: parseInt($('#betRangeSlider').val()),
     });
     triggerBet();
-  // }
 };
 
 function call() {

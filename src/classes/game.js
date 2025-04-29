@@ -1,4 +1,4 @@
-// server-side game logic for a texas hold 'em game
+// サーバー側でゲームロジックを制御
 const Deck = require('./deck.js');
 const Player = require('./player.js');
 const Hand = require('pokersolver').Hand;
@@ -87,7 +87,6 @@ const Game = function (name, host) {
     this.dealCards();
     console.log('-----startnewround dealcard end-----');
     console.log('');
-    // this.log('deck len' + this.deck.cards.length);
     for (player of this.players) {
       player.allIn = false;
     }
@@ -362,7 +361,7 @@ const Game = function (name, host) {
           this.community.push(this.deck.dealRandomCard());
           this.updateStage();
         } else if (this.roundData.bets.length == 4) {
-          //ゲーム結果計算表示と全員手札開示
+          // game end and show all players hands
           console.log('=======game end round data------');
           console.log(this.roundData);
           handOver = true;
@@ -415,7 +414,6 @@ const Game = function (name, host) {
       }
     }
     if (!handOver) {
-      console.log('RERENDERING in moveontonextplayer');
       this.rerender();
     }
   };
@@ -626,7 +624,7 @@ const Game = function (name, host) {
   };
 
   this.revealCards = (winners) => {
-    console.log('revealllllll');
+    console.log('reveal cards');
     console.log(winners);
     this.roundInProgress = false;
     let cardData = [];
@@ -725,8 +723,7 @@ const Game = function (name, host) {
     return player;
   };
 
-  //追加
-  this.removePlayer = (socket,mixchid) => {
+  this.removePlayer = (socket) => {
     const player = this.findPlayer(socket.id);
     this.players.splice(player,1);
     return this.players;
@@ -738,12 +735,6 @@ const Game = function (name, host) {
 
   this.startGame = () => {
     console.log('start game');
-    // this.dealCards();
-    // this.emitPlayers('startGame', {
-    //   players: this.players.map((p) => {
-    //     return p.username;
-    //   }),
-    // });
     this.startNewRound();
   };
 
@@ -805,11 +796,6 @@ const Game = function (name, host) {
         playername: player.getUsername(),
         seat : player.getPlayerSeat()
        });
-      // this.emitPlayers('joinRoomUpdate', {
-      //   players: this.getPlayersArray(),
-      //   code: this.getCode(),
-      // });
-      // this.emitPlayers('hostRoomUpdate', { players: this.getPlayersArray() });
       this.rerender();
     }
   };
